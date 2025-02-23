@@ -99,34 +99,3 @@ class MortgageLoanCalculator:
         last_payment_date = self.schedule[-1]
         return last_payment_date.strftime('%Y-%m-%d')
 
-# Example usage:
-loan = MortgageLoanCalculator(360000, 5.875, 30, '2025-02-19')
-loan.plot_amortization()
-loan.display_summary()
-print(loan.early_payoff_amount(100))
-print(loan.new_term_with_extra_payment(100))
-print(loan.extra_payment_to_retire_debt(10))
-loan.plot_balance_and_interest()
-
-# Example Usage:
-loan = MortgageLoanCalculator(250000, 4.5, 20, '2024-03-01')
-
-# Plot the amortization schedule
-loan.plot_amortization()
-
-# Display loan summary
-loan.display_summary()
-
-# Early payoff amount for a given period (e.g., 50th month)
-print(f"Early Payoff Amount at Month 50: ${loan.early_payoff_amount(50):,.2f}")
-
-# New term if an extra $200 is paid monthly
-print(f"New Loan Term with $200 Extra Payment: {loan.new_term_with_extra_payment(200)}")
-
-# Extra payment required to pay off loan in 15 years
-extra_payment, new_monthly_payment = loan.extra_payment_to_retire_debt(15)
-print(f"Extra Monthly Payment to Retire Debt in 15 Years: ${extra_payment:,.2f}")
-print(f"New Monthly Payment: ${new_monthly_payment:,.2f}")
-
-# Plot balance and cumulative interest over time
-loan.plot_balance_and_interest()
